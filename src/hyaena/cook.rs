@@ -59,8 +59,7 @@ pub fn soup() {
         // 6. Write the randomized content to the new file
         match fs::write(&output_filename, output_content) {
             Ok(_) => println!(
-                "✅ Successfully wrote randomized words to output file:\n
-                '{}'",
+                "✅ Successfully wrote randomized words to output file: '{}'",
                 output_filename
             ),
             Err(e) => eprintln!("Error writing to output file '{}': {}", output_filename, e),
