@@ -1,0 +1,4 @@
+[config]
+
+input_filename = "/Users/youpele/DevWorld/scripts/dada-poetry/files/foods.md"
+words_per_line = 5

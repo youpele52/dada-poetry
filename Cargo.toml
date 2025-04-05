@@ -1,0 +1,22 @@
+[package]
+name = "dada-poetry"
+version = "0.1.0"
+edition = "2021"
+
+
+[lints.rust]
+unsafe_code = "forbid"
+unused = { level = "allow", priority = -1 } # for exploratory dev
+
+[profile.release]
+strip = true      # Automatically strip symbols from the binary.
+opt-level = "s"   # Optimize for size.
+lto = true        # Enable link-time optimization.
+codegen-units = 1 # Maximize size reduction optimizations.
+
+
+[dependencies]
+toml = "0.5"
+serde = { version = "1.0", features = ["derive"] }
+rand = "0.8"
+clap = { version = "4.0", features = ["derive"] }
