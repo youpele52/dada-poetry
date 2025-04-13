@@ -1,7 +1,7 @@
 use crate::hyaena::utils::FilePathInfo;
 use crate::hyaena::ReadOutput;
 use rand::seq::SliceRandom; // For shuffling
-use rand::thread_rng; // For random number generator
+use rand::{thread_rng, Rng}; // For random number generator
 use std::fs; // For file writing
 
 pub fn soup() {
@@ -37,8 +37,11 @@ pub fn soup() {
             "Grouping words into lines of {} words.",
             read_data.config.words_per_line
         );
+        let random_words_per_line: usize = rand::thread_rng().gen_range(2..=read_data.config.words_per_line);
+        println!("Using {} words per line.", random_words_per_line);
+
         let lines: Vec<String> = words
-            .chunks(read_data.config.words_per_line) // Create slices of up to 5 words
+            .chunks(random_words_per_line) // Create slices of up to 5 words
             .map(|chunk| chunk.join(" ")) // Join words in the chunk with spaces
             .collect();
         println!("Grouped words into {} lines.", lines.len());
